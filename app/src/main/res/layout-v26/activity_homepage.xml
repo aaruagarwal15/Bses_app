@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Homepage">
+
+    <!--
+    <ViewGroup
+        android:id="@+id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient" />-->
+
+    <TextView
+        android:id="@+id/usr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text = "@string/userid"/>
+
+    <EditText
+        android:id = "@+id/userid"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "@string/password" />
+
+    <EditText
+        android:id = "@+id/password"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:autofillHints=""
+        android:inputType="textPassword" />
+    <Button
+        android:id = "@+id/loginbtn"
+        android:layout_height = "wrap_content"
+        android:layout_width = "280dp"
+        android:text = "@string/log_in"
+        android:background = "@drawable/loginbtn"
+        />
+
+
+</LinearLayout>
