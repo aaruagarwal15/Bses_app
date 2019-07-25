@@ -10,7 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 1700;
+    private static int SPLASH_TIME_OUT = 1600;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

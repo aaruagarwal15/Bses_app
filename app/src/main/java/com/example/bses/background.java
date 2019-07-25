@@ -1,8 +1,11 @@
 package com.example.bses;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,11 +21,20 @@ import java.net.URLEncoder;
 
 public class background extends AsyncTask <String, Void, String> {
 
+    /*public interface AsyncResponse {
+        void processFinish(String output);
+    }*/
+
     AlertDialog dialog;
     Context context;
+    Activity a;
+    //AsyncResponse delegate = null;
 
-    public background(Context context){
+    public background(Context context,Activity activity)
+    {
         this.context = context;
+        this.a = activity;
+        //this.delegate = delegate;
     }
 
     @Override
@@ -35,9 +47,21 @@ public class background extends AsyncTask <String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        //super.onPostExecute(s);
-        dialog.setMessage(s);
-        dialog.show();
+        super.onPostExecute(s);
+        //dialog.setMessage(s);
+        //dialog.show();
+        //delegate.processFinish(s);
+        if( s.equals("Connected. Enter valid id or passsword")){
+            Toast.makeText(a, "Enter valid id or passsword", Toast.LENGTH_SHORT).show();
+        }
+        else if( s.equals("Connected. Login successfull")){
+            Toast.makeText(a, "Login Successfull", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(a,second.class);
+            a.startActivity(intent);
+        }
+        else{
+            Toast.makeText(a, s, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -46,8 +70,9 @@ public class background extends AsyncTask <String, Void, String> {
         String user = voids[0];
         String pass = voids[1];
 
-        String connstr = "http://localhost/login.php";
-        connstr = "http://127.0.0.1/login.php";
+        String connstr;
+        //connstr = "http://127.0.0.1/login.php";
+        connstr = "http://192.168.43.212/login.php";
 
         try {
             URL url = new URL(connstr);
